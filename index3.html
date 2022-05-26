@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <!-- Main CSS -->
+        <link rel="stylesheet" href="style.css">
+
+        <title>Uploading Documents</title>
+    </head>
+    <body style="background-color: skyblue;">
+        <!-- This page will only have four fields for uploading documents
+        ➢ Recent passport size photograph (image size less than 4MB)
+        ➢ HSC mark sheet (image, PDF or docs size less than 4MB)
+        ➢ SSC mark sheet (image, PDF or docs size less than 4MB)
+        ➢ All semesters mark sheet in a single PDF or docs (file size less than 10MB)
+        <div class="container"> -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Multi-page Registration Form</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form action="index.php" method="post">
+                        <!-- Recent passport size photograph -->
+                        <div class="form-group">
+                            <label for="name">Recent passport size photograph</label>
+                            <input type="file" class="form-control" id="passimg" name="passport" placeholder="" required />
+                        </div>
+                        <!-- HSC mark sheet -->
+                        <div class="form-group">
+                            <label for="name">HSC mark sheet</label>
+                            <input type="file" class="form-control" id="hscmarksheet" name="hscmarksheet" placeholder="" required />
+                        </div>
+                        <!-- SSC mark sheet -->
+                        <div class="form-group">
+                            <label for="name">SSC mark sheet</label>
+                            <input type="file" class="form-control" id="sscmarksheet" name="sscmarksheet" placeholder="" required />
+                        </div>
+                        <!-- All semesters mark sheet -->
+                        <div class="form-group">
+                            <label for="name">All semesters mark sheet</label>
+                            <input type="file" class="form-control" id="semmark" name="allmarksheet" placeholder="" required />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        </body>
+</html>
