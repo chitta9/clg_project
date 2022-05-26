@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
         <!-- Main CSS -->
-        <link rel="stylesheet" href="style.css">
+        <!-- <link rel="stylesheet" href="style.css"> -->
 
         <title>Uploading Documents</title>
     </head>
@@ -22,36 +22,102 @@
         <div class="container"> -->
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Multi-page Registration Form</h1>
+                    <h1 class="text-success text-center" style="color: red;">Multi-page Registration Form</h1>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <form action="index.php" method="post">
+                    <form action="" method="post" onsubmit="OnFilevalidation()">
                         <!-- Recent passport size photograph -->
                         <div class="form-group">
                             <label for="name">Recent passport size photograph</label>
-                            <input type="file" class="form-control" id="passimg" name="passport" placeholder="" required />
+                            <input type="file" class="form-control" id="image" onchange="OnFilevalidation()" name="passport" placeholder="" required />
                         </div>
                         <!-- HSC mark sheet -->
                         <div class="form-group">
                             <label for="name">HSC mark sheet</label>
-                            <input type="file" class="form-control" id="hscmarksheet" name="hscmarksheet" placeholder="" required />
+                            <input type="file" class="form-control" id="hscmarksheet" onchange="OnFilevalidation()" name="hscmarksheet" placeholder="" required  />
                         </div>
                         <!-- SSC mark sheet -->
                         <div class="form-group">
                             <label for="name">SSC mark sheet</label>
-                            <input type="file" class="form-control" id="sscmarksheet" name="sscmarksheet" placeholder="" required />
+                            <input type="file" class="form-control" id="sscmarksheet" onchange="OnFilevalidation()" name="sscmarksheet" placeholder="" required />
                         </div>
                         <!-- All semesters mark sheet -->
                         <div class="form-group">
                             <label for="name">All semesters mark sheet</label>
-                            <input type="file" class="form-control" id="semmark" name="allmarksheet" placeholder="" required />
+                            <input type="file" class="form-control" id="semmarksheet" onchange="OnFilevalidation()" name="allmarksheet" placeholder="" required />
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
             </div>
+
+
+
+
+            <script>
+                OnFilevalidation = () => {
+                        let fi = document.getElementById('image');
+                     // Check if any file is selected.
+                    if (fi.files.length > 0) {
+                        for (const i = 0; i <= fi.files.length - 1; i++) {
+             
+                            const fsize = fi.files.item(i).size;
+                            const file = Math.round((fsize / 1024));
+                            // The size of the file.
+                            if (file >= 4096) {
+                                // document.getElementById('ma').src='';
+                                // console.log(document.getElementById('image'));
+                                fi.files[0]='';
+                                console.log(fi.files[0]);
+                                 alert(
+                                  "File too Big, please select a file less than 4mb");
+                            } else if (file < 1024) {
+                                alert(
+                                  "File too small, please select a file greater than 1mb");
+                            } else {
+                                document.getElementById('size').innerHTML = '<b>'
+                                + file + '</b> KB';
+                            }
+                        }
+                    }
+
+
+            let image,hscmarksheet,sscmarksheet,semmarksheet,sboard,sscore,pursuing,ceducational,backlogs;
+                image=document.getElementById("image").value;
+                hscmarksheet=document.getElementById("hscmarksheet").value;
+                sscmarksheet=document.getElementById("sscmarksheet").value;
+                semmarksheet=document.getElementById("semmarksheet").value;
+                
+
+            let user_records=new Array();
+            user_records=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+    
+            user_records.push({
+            "image":image,
+            "hscmarksheet":hscmarksheet,
+            "sscmarksheet":sscmarksheet,
+            "semmarksheet":semmarksheet
+            })
+            localStorage.setItem("users",JSON.stringify(user_records));
+            }
+
+        
+                
+        </script>
+               
+       
+            
+
+
+               
+ 
+
+
+           
+
+
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
